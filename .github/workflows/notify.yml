@@ -1,0 +1,29 @@
+name: Notify on Repository Changes
+
+on:
+  push:
+    branches: # branches to monitor
+      - main
+      - feature-a
+      - featuer-b
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+      - name: Send Email Notification
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.office365.com
+          server_port: 587
+          username: ${{secrets.SMTP_EMAIL}}
+          password: ${{secrets.SMTP_PASSWORD}}
+          subject: 'Repository Change Notification'
+          body: 'Changes were made to the repository on branch: ${{github.ref_name}}.'
+          to: practica-tic@outlook.com
+          from: practica-tic@outlook.com
+          secure: true # set to false if your SMTP server doesn't require SSL/TLS
