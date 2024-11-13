@@ -18,8 +18,8 @@ jobs:
       - name: Send Email Notification
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.office365.com
-          server_port: 25
+          server_address: smtp-mail.outlook.com
+          server_port: 587
           username: ${{secrets.SMTP_EMAIL}}
           password: ${{secrets.SMTP_PASSWORD}}
           subject: 'Repository Change Notification'
