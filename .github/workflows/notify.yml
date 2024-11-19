@@ -26,4 +26,4 @@ jobs:
           body: 'Changes were made to the repository on branch: ${{github.ref_name}}.'
           to: romero.iteso@gmail.com
           from: romero.iteso@gmail.com
-          secure: true # set to false if your SMTP server doesn't require SSL/TLS
+          secure: false # set to false if your SMTP server doesn't require SSL/TLS
